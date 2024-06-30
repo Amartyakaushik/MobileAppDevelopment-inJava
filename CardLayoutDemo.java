@@ -8,9 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+// public class CardLayoutDemo  {
 public class CardLayoutDemo implements ActionListener {
     JFrame frame;
-    JPanel cardDeck;
+    static JPanel cardDeck;
     CardLayout cl;
 
     JButton next;
@@ -35,12 +36,12 @@ public class CardLayoutDemo implements ActionListener {
         show = new JButton("Show!");
 
         
-        // first.addActionListener(new Demo1());
-        // last.addActionListener(new Demo1());
-        // next.addActionListener(new Demo1());
-        // previous.addActionListener(new Demo1());
-        // show.addActionListener(new Demo1());
-        
+        // first.addActionListener(new DemoAction());
+        // last.addActionListener(new DemoAction());
+        // next.addActionListener(new DemoAction());
+        // previous.addActionListener(new DemoAction());
+        // show.addActionListener(new DemoAction());
+
         first.addActionListener(this);
         last.addActionListener(this);
         next.addActionListener(this);
@@ -68,12 +69,16 @@ public class CardLayoutDemo implements ActionListener {
         panel3.add(new JButton("panel3 Button4"));
 
 
+        // cardDeck.add
         cardDeck.add("card1",panel1);
         cardDeck.add("card2",panel2);
-        cardDeck.add("card1",panel3);
+        cardDeck.add("card3",panel3);
+        // cardDeck.add("card1",panel1);
+        // cardDeck.add("card2",panel2);
+        // cardDeck.add("card1",panel3);
 
-        frame.add(next,BorderLayout.NORTH);
-        // frame.add(NorthPanel,BorderLayout.NORTH);
+        // frame.add(next,BorderLayout.NORTH);
+        frame.add(NorthPanel,BorderLayout.NORTH);
         frame.add(previous,BorderLayout.SOUTH);
         frame.add(first,BorderLayout.EAST);
         frame.add(last,BorderLayout.WEST);
@@ -90,47 +95,42 @@ public class CardLayoutDemo implements ActionListener {
         public void actionPerformed(ActionEvent e){
             String s = e.getActionCommand();
             switch(s){
-                case "FIRST":
+                case "First!":
                     cl.first(cardDeck);
                     break;
-                case "LAST":
+                case "Last!":
                     cl.last(cardDeck);
                     break;
-                case "NEXT":
-                    cl.next(cardDeck);
-                    break;
-                case "PREVIOUS":
+                // case "Next!":
+                //     cl.next(cardDeck);
+                //     break;
+                case "Previous!":
                     cl.previous(cardDeck);
                     break;
-                // case "SHOW":
-                //     cl.show(cardDeck,textField.getText());
-                //     break;
+                case "Show!":
+                    cl.show(cardDeck,textField.getText());
+                    break;
                 // cardDeck.show(cardDeck,"card1");
             }
         }
         }
-
-        // class Demo1 implements ActionListener{
-        //     public void actionPerformed(ActionEvent e){
-        //         String s = e.getActionCommand();
-        //         CardLayoutDemo d = new CardLayoutDemo();
-        //         switch(s){
-        //             case "FIRST":
-        //                 d.cl.first(d.cardDeck);
-        //                 break;
-        //             case "LAST":
-        //                 d.cl.last(d.cardDeck);
-        //                 break;
-        //             case "NEXT":
-        //                 d.cl.next(d.cardDeck);
-        //                 break;
-        //             case "PREVIOUS":
-        //                 d.cl.previous(d.cardDeck);
-        //                 break;
-        //             // case "SHOW":
-        //             //     cl.show(cardDeck,textField.getText());
-        //             //     break;
-        //             // cardDeck.show(cardDeck,"card1");
-        //         }
-        //     }
-        // }
+// class DemoAction implements ActionListener{
+//     public void  actionPerformed(ActionEvent e){
+//         String s = e.getActionCommand();
+//         CardLayoutDemo p = new CardLayoutDemo();
+//         switch(s){
+//             case "first":
+//             p.cl.first(CardLayoutDemo.cardDeck);
+//             break;
+//             case "last":
+//             p.cl.last(CardLayoutDemo.cardDeck);
+//             break;
+//             case "next":
+//             p.cl.next(CardLayoutDemo.cardDeck);
+//             break;
+//             case "previous":
+//             p.cl.previous(CardLayoutDemo.cardDeck);
+//             break;
+//         }
+//     }
+// }
